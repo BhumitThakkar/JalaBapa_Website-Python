@@ -1,0 +1,48 @@
+{% extends "collections/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Music Collection
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Music Collection</div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <h2 class="pure_black-container">Music Player</h2>
+                        <div id="audio_player">
+                            <audio controls autoplay style="width: 100%;">
+                                <source id="player1" src="/media/Collections/music/Jalaram_Sat-Bavni.mp3" type="audio/ogg">
+                                <source id="player2" src="/media/Collections/music/Jalaram_Sat-Bavni.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="pure_black-container">Music Playlist</h2>
+                        <ul class="scrollbar services">
+                            {% for music in music_collection %}
+                                <li class="glow_background pointer_cursor" id="music{{ forloop.counter }}" name="music" value="{{ object.id }}" onclick="play_music( 'player1', 'player2', '{{ music.file.url }}' )">{{ music.file_name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->

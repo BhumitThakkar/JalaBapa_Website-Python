@@ -1,0 +1,26 @@
+{% extends "collections/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Image Collection
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+
+    <div class="container-fluid black-container">
+        {% for image in image_collection %}
+        <img style="float:left; border-radius:15px; border: 5px black solid; margin:5px; height: 250px" class="opacity_half opacity_full_on_hover pointer_cursor" src="{{ image.file.url }}">
+        {% endfor %}
+    </div>
+
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->

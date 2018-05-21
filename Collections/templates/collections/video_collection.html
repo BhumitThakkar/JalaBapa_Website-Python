@@ -1,0 +1,49 @@
+{% extends "collections/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Video Collection
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Video Collection</div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <h2 class="pure_black-container">Video Player</h2>
+                        <div id="video_player">
+                            <video controls autoplay style="width: 100%;">
+                                <source id="player1" src="/media/Collections/video/Ram_Ram_Jai_Raja_Ram_Bhajan.mp4" type="video/mp4">
+                                <source id="player2" src="/media/Collections/video/Ram_Ram_Jai_Raja_Ram_Bhajan.mp4" type="video/webm">
+                                <source id="player3" src="/media/Collections/video/Ram_Ram_Jai_Raja_Ram_Bhajan.mp4" type="video/ogg">
+                                Your browser does not support the video element.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="pure_black-container">Video Playlist</h2>
+                        <ul class="scrollbar services">
+                            {% for video in video_collection %}
+                                <li class="glow_background pointer_cursor" id="video{{ forloop.counter }}" name="music" value="{{ object.id }}" onclick="play_video( 'player1', 'player2', 'player3', '{{ video.file.url }}' )">{{ video.file_name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->

@@ -1,0 +1,91 @@
+{% extends "activities/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Activity
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+<div class="container-fluid black-container">
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Poster</div>
+        </div>
+        <center><img class="soft_corner poster_large_size" style="height:95%; width: 95%; border: solid white 2px;" src="{{ activities.poster.url }}"></center>         <!-- call through class name in lower case : activities, no need for primary key it takes from url and DetailView manages automatically-->
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Summary on {{activities.activity_title}}</div>
+                <div class="panel-body scrollbar"><p>{{activities.summary}}</p></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Tutor</div>
+                <div class="panel-body">{{activities.instructor}}</div>
+            </div>
+        </div>
+        {% if activities.start_date == activities.end_date %}
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Activity Date</div>
+                <div class="panel-body">{{activities.start_date}}</div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Activity Dates</div>
+                <div class="panel-body">{{activities.start_date}} to {{activities.end_date}}</div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Activity Week Day(s)</div>
+                <div class="panel-body">{{activities.week_days}}</div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Timings</div>
+                <div class="panel-body"> {{ activities.start_time|date:"h:i A" }} to {{activities.end_time|date:"h:i A"}}</div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Venue</div>
+                <div class="panel-body">{{activities.venue}}</div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Contact Persons</div>
+                <div class="panel-body">
+                    {% for person in activities.contact_persons.all%}
+                        {{person}}<br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Status</div>
+                <div class="panel-body">{{activities.status}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->

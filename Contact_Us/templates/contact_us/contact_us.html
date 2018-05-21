@@ -1,0 +1,89 @@
+{% extends "contact_us/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Contact Us
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+<div class="black-container container-fluid">
+
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Map</div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2963.4170957418733!2d-88.08995788455398!3d42.03423557921014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880faf32f660c8c7%3A0x108d57b279ab75d8!2s425+Illinois+Blvd%2C+Hoffman+Estates%2C+IL+60169!5e0!3m2!1sen!2sus!4v1505415105976" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class=" panel panel-primary">
+            <div class="panel-heading">Address
+            </div>
+            <div style="font-size: 20px;">
+                <center>
+                    <div class="" style="border-radius: 20px 20px 0px 0px">
+                    Shree Jalaram Mandir<br><br>
+                    425 Illinois Blvd.,<br>
+                    Hoffman Estates,<br>
+                    IL, United States
+                    </div>
+                    <br>
+                </center>
+                <div>
+                    &nbsp;&nbsp;Telephone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(847) 490 - JALA (5252)
+                    <br>
+                    &nbsp;&nbsp;FAX:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(847) 490 - JALA (5252)
+                    <br>
+                    &nbsp;&nbsp;E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ShreeJalaramMandirChicago@gmail.com
+                ​</div>
+            </div>
+        </div>
+    </div>
+
+    {% if request.path == '/contact_us/' %}
+    <div class="col-md-6">
+        <div class=" panel panel-primary">
+            <div class="panel-heading">Want To Be Updated?
+            </div>
+        </div>
+        <div class="form-area">
+            <form role="form" action="{% url 'Contact_Us:regiser' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" name="Name" placeholder="FirstName LastName" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="email" onblur="validateMail();" name="Email" placeholder="Email" required>
+                </div>
+                <button type="submit" id="submit" name="Submit" class="btn btn-primary pull-right">Submit</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if request.path == '/contact_us/thanks/' %}
+    <div class="col-md-6">
+        <div class=" panel panel-primary">
+            <div class="panel-heading">Thanks for Registration
+            </div>
+        </div>
+        <div class="col-md-12">
+            <center><img style="max-width: 705px; max-height: 305px;" src="{{ thanks_image_link }}"></center>
+        </div>
+    </div>
+    {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->

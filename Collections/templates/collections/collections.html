@@ -1,0 +1,32 @@
+{% extends "collections/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Collections
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+
+    <div class="container-fluid black-container">
+        <div class="col-md-4">
+            <center><a href="{% url 'Collections:image_collections' %}"><button class="btn-danger btn-lg">Image Collections</button></a></center>
+        </div>
+        <div class="col-md-4">
+            <center><a href="{% url 'Collections:music_collections' %}"><button class="btn-danger btn-lg">Music Collections</button></a></center>
+        </div>
+        <div class="col-md-4">
+            <center><a href="{% url 'Collections:video_collections' %}"><button class="btn-danger btn-lg">Video Collections</button></a></center>
+        </div>
+    </div>
+
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->

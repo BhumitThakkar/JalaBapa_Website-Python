@@ -1,0 +1,32 @@
+{% extends "publications/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Publications
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+    <div class="container-fluid">
+        <ul style="list-style: none">
+        {% for publication in all_publications %}
+            <li>
+                <a href="{{ publication.file.url }}">
+                    <div style="float: left;" class="boxes black-container text-grow">
+                        <span style="color: white">{{ publication }}</span>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->

@@ -1,0 +1,61 @@
+{% extends "donate/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Donate
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+<div class="container-fluid black-container">
+
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Thanks</div>
+        </div>
+        <div class="col-md-12 panel" style="background: transparent">
+            <center><img style="max-width: 705px; max-height: 305px;" src="{{ donate_thanks_image_link }}"></center>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Check</div>
+            <div class="panel-body">
+            <center>
+                Make check payable to <span style="color: red">"Shree Jalaram Mandir"</span><br/>
+                Mail to address:  <span style="color: red">425 Illinois Blvd., Hoffman Estates IL 60169</span><br/>
+                <span style="color: red">Fill out the pledge card below</span> and accompany with the check
+                <img style="max-width: 705px; max-height: 305px;" src="/static/donate/images/donate_card.png">
+            </center>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">PayPal</div>
+            <div class="panel-body" style="height: 405px">
+                <a target="_blank" href="https://www.paypal.me/ShreeJalaramMandirIL">
+                    <center>
+                        <br>
+                        <br>
+                        <br>
+                        <img style="padding:20px; max-width: 705px; max-height: 305px;" src="/static/donate/images/pp2.png">
+                    </center>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->

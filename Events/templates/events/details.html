@@ -1,0 +1,100 @@
+{% extends "events/base.html" %}
+{% load staticfiles %}
+<!--Title of page-->
+{% block title %}
+    Event
+{% endblock %}
+<!--Title of page-->
+
+{% block add_link %}
+{% endblock %}
+
+<!--Body-->
+{% block body %}
+<div class="container-fluid black-container">
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Poster</div>
+        </div>
+        <center><img class="soft_corner poster_large_size" style="height:95%; width: 95%; border: solid white 2px;" src="{{ events.poster.url }}"></center>         <!-- call through class name in lower case : events, no need for primary key it takes from url and DetailView manages automatically-->
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Summary on {{events.event_title}}</div>
+                <div class="panel-body scrollbar"><p>{{events.summary}}</p></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Tutor</div>
+                <div class="panel-body">{{events.instructor}}</div>
+            </div>
+        </div>
+        {% if events.start_date == events.end_date %}
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Event Date</div>
+                <div class="panel-body">{{events.start_date}}</div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Event Dates</div>
+                <div class="panel-body">{{events.start_date}} to {{events.end_date}}</div>
+            </div>
+        </div>
+        {% endif %}
+        {% if events.guest is not None %}
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Guest</div>
+                <div class="panel-body">{{events.guest}}</div>
+            </div>
+        </div>
+        {% endif %}
+        {% if events.week_days is not None %}
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Event Week Day(s)</div>
+                <div class="panel-body">{{events.week_days}}</div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Timings</div>
+                <div class="panel-body"> {{ events.start_time|date:"h:i A" }} {% if events.end_time is not null %} to {{events.end_time|date:"h:i A"}} {% else %} onwards {% endif %}</div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Venue</div>
+                <div class="panel-body">{{events.venue}}</div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Contact Persons</div>
+                <div class="panel-body">
+                    {% for person in events.contact_persons.all%}
+                        {{person}}<br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Status</div>
+                <div class="panel-body">{{events.status}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!--Body-->
+
+<!--Footer-->
+
+<!--Footer-->
